@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <form action="@Url.Action("JobLijst", "JobLijst")">
+            <input type="submit" value="Start"/>
+        </form>
+        <form action="@Url.Action("JobInsert", "JobInsert")">
+            JobNr: <input type="text" name="JobNr" />
+            Aantal: <input type="text" name="Aantal" />
+            <input type="submit" value="stuur" />
+        </form>
+    </div>
+</body>
+</html>

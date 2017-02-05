@@ -1,0 +1,19 @@
+﻿@model MySqlTest2.Models.JobStitch
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>JobInsert</title>
+</head>
+<body>
+    <div>
+        ordernr @Model.JobNr
+        Lijnen aangepast: @ViewBag.RowsAffected
+    </div>
+</body>
+</html>
