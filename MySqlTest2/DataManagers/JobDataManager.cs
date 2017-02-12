@@ -57,6 +57,55 @@ namespace MySqlTest2.DataManagers
             return stitchJobs;
         }
 
+        public List<JobStitch> GetJobsStitchByMachineId(int id)
+        {
+            List<JobStitch> stitchJobs = new List<JobStitch>();
+
+            try
+            {
+                using (MySqlConnection connectie = new MySqlConnection(@"Server=185.13.227.203; Database=benondp171_jo; User= benondp171_jo; Password=J0test; "))
+                using (MySqlCommand jobcommando = new MySqlCommand("SELECT Id, JobNr, Aantal, Breedte, Hoogte, AantalBlz, Cover, StartJob, StopJob, LeverDatum FROM JobStitch WHERE MachineId=@Id", connectie))
+                {
+                    jobcommando.Parameters.Add("Id", MySqlDbType.Int16).Value = id;
+                    connectie.Open();
+
+                    using (MySqlDataReader jobLezer = jobcommando.ExecuteReader())
+                    {
+                        while (jobLezer.Read())
+                        {
+                            JobStitch s = new JobStitch();
+                            int idIndex = jobLezer.GetOrdinal(nameof(JobStitch.Id));
+                            s.Id = jobLezer.GetInt16(idIndex);
+                            int idJobNr = jobLezer.GetOrdinal(nameof(JobStitch.JobNr));
+                            s.JobNr = jobLezer.GetString(idJobNr);
+                            int idAantal = jobLezer.GetOrdinal(nameof(JobStitch.Aantal));
+                            s.Aantal = jobLezer.GetInt16(idAantal);
+                            int idBreedte = jobLezer.GetOrdinal(nameof(JobStitch.Breedte));
+                            s.Breedte = jobLezer.GetInt16(idBreedte);
+                            int idHoogte = jobLezer.GetOrdinal(nameof(JobStitch.Hoogte));
+                            s.Hoogte = jobLezer.GetInt16(idHoogte);
+                            int idAantalBlz = jobLezer.GetOrdinal(nameof(JobStitch.AantalBlz));
+                            s.AantalBlz = jobLezer.GetInt16(idAantalBlz);
+                            int idCover = jobLezer.GetOrdinal(nameof(JobStitch.Cover));
+                            s.Cover = jobLezer.GetBoolean(idCover);
+                            int idStartJob = jobLezer.GetOrdinal(nameof(JobStitch.StartJob));
+                            s.StartJob = jobLezer.GetDateTime(idStartJob);
+                            int idStopJob = jobLezer.GetOrdinal(nameof(JobStitch.StopJob));
+                            s.StopJob = jobLezer.GetDateTime(idStopJob);
+                            int idLeverDatum = jobLezer.GetOrdinal(nameof(JobStitch.LeverDatum));
+                            s.LeverDatum = jobLezer.GetDateTime(idLeverDatum);
+                            stitchJobs.Add(s);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string fout = ex.Message;
+            }
+            return stitchJobs;
+        }
+
         public int InsertJobStitch(JobStitch job)
         {
             int affectedRows = 100;

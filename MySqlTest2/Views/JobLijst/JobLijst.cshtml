@@ -13,10 +13,39 @@
 </head>
 <body>
     <div> 
+        Lijst volgens leverdatum: 
+        <form action="@Url.Action("JobLijst", "JobLijst")">
+            <input type="datetime" name="LeverDatum"/>
+            <input type="submit" value="stuur"/>
+        </form>
         @{ foreach (var s in Model.StitchJobs)
             {
                 <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br/> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
             }}
+        Lijst volgens machine Id 1:
+        @{ foreach (var s in Model.StichJobsbyMachineId1)
+            {
+                <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br /> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
+            }
+        }
+        Lijst volgens machine Id 2:
+        @{ foreach (var s in Model.StichJobsbyMachineId2)
+            {
+                <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br /> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
+            }
+        }
+        Lijst volgens machine Id 3:
+        @{ foreach (var s in Model.StichJobsbyMachineId3)
+            {
+                <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br /> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
+            }
+        } 
+        Lijst volgens machine Id 4:
+        @{ foreach (var s in Model.StichJobsbyMachineId4)
+            {
+        <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br /> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
+        }
+        }
     </div>
 </body>
 </html>
