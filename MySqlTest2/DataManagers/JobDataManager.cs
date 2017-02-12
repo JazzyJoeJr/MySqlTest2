@@ -16,7 +16,7 @@ namespace MySqlTest2.DataManagers
             try
             {
                 using (MySqlConnection connectie = new MySqlConnection(@"Server=185.13.227.203; Database=benondp171_jo; User= benondp171_jo; Password=J0test; "))
-                using (MySqlCommand jobcommando = new MySqlCommand("SELECT Id, JobNr, Aantal, Breedte, Hoogte, AantalBlz, Cover, StartJob, StopJob FROM JobStitch", connectie))
+                using (MySqlCommand jobcommando = new MySqlCommand("SELECT Id, JobNr, Aantal, Breedte, Hoogte, AantalBlz, Cover, StartJob, StopJob, LeverDatum FROM JobStitch", connectie))
                 {
                     connectie.Open();
 
@@ -35,7 +35,6 @@ namespace MySqlTest2.DataManagers
                             s.Breedte = jobLezer.GetInt16(idBreedte);
                             int idHoogte = jobLezer.GetOrdinal(nameof(JobStitch.Hoogte));
                             s.Hoogte = jobLezer.GetInt16(idHoogte);
-                            stitchJobs.Add(s);
                             int idAantalBlz = jobLezer.GetOrdinal(nameof(JobStitch.AantalBlz));
                             s.AantalBlz = jobLezer.GetInt16(idAantalBlz);
                             int idCover = jobLezer.GetOrdinal(nameof(JobStitch.Cover));
@@ -44,6 +43,9 @@ namespace MySqlTest2.DataManagers
                             s.StartJob = jobLezer.GetDateTime(idStartJob);
                             int idStopJob = jobLezer.GetOrdinal(nameof(JobStitch.StopJob));
                             s.StopJob = jobLezer.GetDateTime(idStopJob);
+                            int idLeverDatum = jobLezer.GetOrdinal(nameof(JobStitch.LeverDatum));
+                            s.LeverDatum = jobLezer.GetDateTime(idLeverDatum);
+                            stitchJobs.Add(s);
                         }
                     }
                 }

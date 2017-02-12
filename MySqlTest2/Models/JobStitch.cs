@@ -19,5 +19,6 @@ namespace MySqlTest2.Models
         public int MedewerkerId { get; set; }
         public DateTime StartJob { get; set; }
         public DateTime StopJob { get; set; }
+        public DateTime LeverDatum { get; set; }
     }
 }
