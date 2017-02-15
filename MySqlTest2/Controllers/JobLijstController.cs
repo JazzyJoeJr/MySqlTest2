@@ -24,6 +24,7 @@ namespace MySqlTest2.Controllers
             mod.StichJobsbyMachineId2 = jobsData.GetJobsStitchByMachineId(2);
             mod.StichJobsbyMachineId3 = jobsData.GetJobsStitchByMachineId(3);
             mod.StichJobsbyMachineId4 = jobsData.GetJobsStitchByMachineId(4);
+            mod.StitchJobsbyMachineId0 = jobsData.GetJobsStitchByMachineId(0);
             return View(mod);
         }
 

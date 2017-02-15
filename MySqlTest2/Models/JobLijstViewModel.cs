@@ -12,6 +12,7 @@ namespace MySqlTest2.Models
         public List<JobStitch> StichJobsbyMachineId2 { get; set; }
         public List<JobStitch> StichJobsbyMachineId3 { get; set; }
         public List<JobStitch> StichJobsbyMachineId4 { get; set; }
+        public List<JobStitch> StitchJobsbyMachineId0 { get; set; }
         public JobStitch Job { get; set; }
     }
 }

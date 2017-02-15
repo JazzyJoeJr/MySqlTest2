@@ -5,47 +5,80 @@
 }
 
 <!DOCTYPE html>
-
+<style>
+    #header {
+        background-image: url("../../Images/_Home_52.jpg");
+        background-repeat: repeat-x;
+        height: 170px;
+    }
+    
+</style>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>JobLijst</title>
 </head>
 <body>
+    <div id="header">
+    </div>
     <div> 
         Lijst volgens leverdatum: 
         <form action="@Url.Action("JobLijst", "JobLijst")">
-            <input type="datetime" name="LeverDatum"/>
+            <input type="date" name="LeverDatum"/>
             <input type="submit" value="stuur"/>
         </form>
-        @{ foreach (var s in Model.StitchJobs)
-            {
-                <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br/> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
-            }}
-        Lijst volgens machine Id 1:
-        @{ foreach (var s in Model.StichJobsbyMachineId1)
-            {
-                <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br /> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
-            }
-        }
-        Lijst volgens machine Id 2:
-        @{ foreach (var s in Model.StichJobsbyMachineId2)
-            {
-                <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br /> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
-            }
-        }
-        Lijst volgens machine Id 3:
-        @{ foreach (var s in Model.StichJobsbyMachineId3)
-            {
-                <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br /> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
-            }
-        } 
-        Lijst volgens machine Id 4:
-        @{ foreach (var s in Model.StichJobsbyMachineId4)
-            {
-        <p>Primary Key = @s.Id - Ordernr. = @s.JobNr - Aantal  =@s.Aantal ex. - Breedte = @s.Breedte mm. - Hoogte = @s.Hoogte mm. - Omvang = @s.AantalBlz blz. - Cover = @s.Cover <br /> Start = @s.StartJob - Stop = @s.StopJob - LeverDatum = @s.LeverDatum</p>
-        }
-        }
+        <div>
+            <select name="AllJobs" multiple size="10">
+                @{ foreach (var s in Model.StitchJobs)
+                    {
+                        <option value="@s.Id">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
+                    }}
+            </select>
+            <select name="JobsNoMachine" multiple size="5">
+                @{ foreach (var s in Model.StitchJobsbyMachineId0)
+                    {
+                        <option value="@s.Id">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
+                    }}
+            </select>
+        </div>
+        <div>
+            <input type="submit" name="PlanStitch1" value="Plan Stitch1" />
+            <input type="submit" name="PlanStitch2" value="Plan Stitch2" />
+            <input type="submit" name="PlanStitch3" value="Plan Stitch3" />
+            <input type="submit" name="PlanStitch4" value="PlanStitch4" />
+        </div>
+        <div>
+            <select name="JobsMachine1" multiple size="5">
+                @{ foreach (var s in Model.StichJobsbyMachineId1)
+                    {
+                        <option value="@s.Id">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
+                    }}
+            </select>
+            <select name="JobsMachine2" multiple size="5">
+                @{ foreach (var s in Model.StichJobsbyMachineId2)
+                    {
+                        <option value="@s.Id">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
+                    }}
+            </select>
+            <select name="JobsMachine3" multiple size="5">
+                @{ foreach (var s in Model.StichJobsbyMachineId3)
+                    {
+                        <option value="@s.Id">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
+                    }}
+            </select>
+            <select name="JobsMachine4" multiple size="5">
+                @{ foreach (var s in Model.StichJobsbyMachineId4)
+                    {
+                        <option value="@s.Id">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
+                    }}
+            </select>
+        </div>
+        <div>
+            <input type="submit" name="StartStitch1" value="Start Stitch1" />
+            <input type="submit" name="StartStitch2" value="Start Stitch2" />
+            <input type="submit" name="StartStitch3" value="Start Stitch3" />
+            <input type="submit" name="StartStitch4" value="Start Stitch4" />
+        </div>
     </div>
 </body>
 </html>
