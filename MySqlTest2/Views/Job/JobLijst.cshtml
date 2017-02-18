@@ -1,5 +1,5 @@
 ﻿
-@model MySqlTest2.Models.JobLijstViewModel
+@model MySqlTest2.Models.JobViewModel
 @{
     Layout = null;
 }
@@ -31,21 +31,25 @@
             <select name="AllJobs" multiple size="10">
                 @{ foreach (var s in Model.StitchJobs)
                     {
-                        <option value="@s.Id">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
+                        <option value="@s">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
                     }}
             </select>
-            <select name="JobsNoMachine" multiple size="5">
-                @{ foreach (var s in Model.StitchJobsbyMachineId0)
-                    {
-                        <option value="@s.Id">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
-                    }}
-            </select>
+            <form action="@Url.Action("PlanJob","Job","id")">
+                <select name="Id" multiple size="5">
+                    @{ foreach (var s in Model.StitchJobsbyMachineId0)
+                        {
+                            <option value="@s.Id">@s.JobNr - @s.Aantal ex. - @s.AantalBlz blz. - @s.Breedte x @s.Hoogte mm.</option>
+                        }}
+                </select>
+                <input type="submit" name="Id" value="Plan Stitch1" />
+            </form>
         </div>
         <div>
-            <input type="submit" name="PlanStitch1" value="Plan Stitch1" />
-            <input type="submit" name="PlanStitch2" value="Plan Stitch2" />
-            <input type="submit" name="PlanStitch3" value="Plan Stitch3" />
-            <input type="submit" name="PlanStitch4" value="PlanStitch4" />
+            <form action="@Url.Action("PlanJob","Job")">
+                <input type="submit" name="PlanStitch2" value="Plan Stitch2" />
+                <input type="submit" name="PlanStitch3" value="Plan Stitch3" />
+                <input type="submit" name="PlanStitch4" value="Plan Stitch4" />
+            </form>
         </div>
         <div>
             <select name="JobsMachine1" multiple size="5">

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MySqlTest2.Models
 {
-    public class JobLijstViewModel
+    public class JobViewModel
     {
         public List<JobStitch> StitchJobs { get; set; }
         public List<JobStitch> StichJobsbyMachineId1 { get; set; }

@@ -128,12 +128,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobInsertController.cs" />
-    <Compile Include="Controllers\JobLijstController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
     <Compile Include="DataManagers\JobDataManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\JobLijstViewModel.cs" />
+    <Compile Include="Models\JobViewModel.cs" />
     <Compile Include="Models\JobStitch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -144,8 +144,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\JobLijst\JobLijst.cshtml" />
+    <Content Include="Views\Job\JobLijst.cshtml" />
     <Content Include="Views\JobInsert\JobInsert.cshtml" />
+    <Content Include="Views\Job\PlanJob.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

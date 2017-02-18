@@ -106,6 +106,29 @@ namespace MySqlTest2.DataManagers
             return stitchJobs;
         }
 
+        public int SetJobMachineIdById(int id)
+        {
+            int machineId = id;
+            int affectedRows = 100;
+            try
+            {
+                using (MySqlConnection connectie = new MySqlConnection(@"Server=185.13.227.203; Database=benondp171_jo; User= benondp171_jo; Password=J0test; "))
+                using (MySqlCommand insertcommando = new MySqlCommand("UPDATE JobStitch " + "SET MachineId = 4 " + "WHERE Id = @Id", connectie))
+                {
+                    insertcommando.Parameters.Add("Id", MySqlDbType.Int16).Value = machineId;
+                    connectie.Open();
+                    affectedRows = insertcommando.ExecuteNonQuery();
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                string fout = ex.Message;
+            }
+            return affectedRows;
+        }
+
         public int InsertJobStitch(JobStitch job)
         {
             int affectedRows = 100;

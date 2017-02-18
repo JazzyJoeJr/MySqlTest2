@@ -8,16 +8,16 @@ using MySqlTest2.DataManagers;
 
 namespace MySqlTest2.Controllers
 {
-    public class JobLijstController : Controller
+    public class JobController : Controller
     {
         // GET: JobLijst
         public ActionResult Index()
         {
             return View();
         }
-        public ViewResult JobLijst(string naam)
+        public ViewResult JobLijst()
         {
-            var mod = new JobLijstViewModel();
+            var mod = new JobViewModel();
             var jobsData = new JobDataManager();
             mod.StitchJobs = jobsData.GetJobsStitch();
             mod.StichJobsbyMachineId1 = jobsData.GetJobsStitchByMachineId(1);
@@ -26,6 +26,12 @@ namespace MySqlTest2.Controllers
             mod.StichJobsbyMachineId4 = jobsData.GetJobsStitchByMachineId(4);
             mod.StitchJobsbyMachineId0 = jobsData.GetJobsStitchByMachineId(0);
             return View(mod);
+        }
+        public ViewResult PlanJob(int Id)
+        {
+            var jobsData = new JobDataManager();
+            ViewBag.RowsAffected = jobsData.SetJobMachineIdById(Id);
+            return View();
         }
 
        
