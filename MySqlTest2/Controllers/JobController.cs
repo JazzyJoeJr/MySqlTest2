@@ -27,7 +27,7 @@ namespace MySqlTest2.Controllers
             mod.StitchJobsbyMachineId0 = jobsData.GetJobsStitchByMachineId(0);
             return View(mod);
         }
-        public ViewResult PlanJob(int Id)
+        public ViewResult PlanJob(int Id, string MachineId)
         {
             var jobsData = new JobDataManager();
             ViewBag.RowsAffected = jobsData.SetJobMachineIdById(Id);
