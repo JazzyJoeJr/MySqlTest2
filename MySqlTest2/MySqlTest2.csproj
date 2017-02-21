@@ -125,6 +125,9 @@
     <Content Include="Images\_Home_52.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="myCsv.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +153,10 @@
     <Content Include="Views\Job\JobLijst.cshtml" />
     <Content Include="Views\JobInsert\JobInsert.cshtml" />
     <Content Include="Views\Job\PlanJob.cshtml" />
+    <Content Include="Views\Job\JobLezer.cshtml" />
+    <Content Include="myCsv.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

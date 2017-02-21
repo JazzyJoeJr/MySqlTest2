@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MySqlTest2.Models;
 using MySqlTest2.DataManagers;
+using System.IO;
 
 namespace MySqlTest2.Controllers
 {
@@ -31,6 +32,36 @@ namespace MySqlTest2.Controllers
         {
             var jobsData = new JobDataManager();
             ViewBag.RowsAffected = jobsData.SetJobMachineIdById(Id, MachineId);
+            return View();
+        }
+        public ViewResult JobLezer()
+        {
+            List<JobStitch> jobs = new List<JobStitch>();
+            StreamReader lezer = new StreamReader("C:\\Users\\Jo\\Documents\\AProject\\MySqlTest2\\bin\\myCsv.txt");
+            string lijn = lezer.ReadLine();
+
+            while (!lezer.EndOfStream)
+            {
+                lijn = lezer.ReadLine();
+                string[] splits = lijn.Split(';');
+                JobStitch stitch = new JobStitch();
+                stitch.LeverDatum = Convert.ToDateTime(splits[4]);
+                stitch.JobNr = splits[1];
+
+                double aantal = double.Parse(splits[2]);
+                stitch.Aantal = Convert.ToInt16(aantal);
+               
+               
+                stitch.Breedte = 210;
+                stitch.Hoogte = 297;
+                stitch.Cover = false;
+                stitch.AantalBlz = 8;
+                stitch.PapierBw = "mc-silk 130";
+
+                jobs.Add(stitch);
+
+            }
+
             return View();
         }
 
